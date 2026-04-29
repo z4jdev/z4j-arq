@@ -1,6 +1,6 @@
 [project]
 name = "z4j-arq"
-version = "1.0.1"
+version = "1.1.2"
 description = "z4j arq queue engine adapter (Apache 2.0)"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -24,6 +24,14 @@ dependencies = [
     "z4j-core>=1.0,<2.0",
     "arq>=0.26,<1",
 ]
+
+[project.scripts]
+# 1.1.2+ console script. Both ``z4j-arq`` (pip-installed entry
+# point) and ``python -m z4j_arq`` (module form) work and
+# dispatch to the same code path. Engine adapters are libraries,
+# so the CLI is doctor / check / status / version only - no
+# ``run`` or ``restart`` (those belong to framework adapters).
+z4j-arq = "z4j_arq.cli:main"
 
 [project.urls]
 Changelog = "https://github.com/z4jdev/z4j-arq/blob/main/CHANGELOG.md"
