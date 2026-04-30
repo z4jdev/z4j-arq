@@ -21,7 +21,7 @@ Pair with z4j-arqcron to surface arq cron jobs.
 | Purge queue | with confirm-token guard |
 | Reconcile task | via arq's Redis-backed result store |
 
-Async-native — uses arq's existing on_job_start / on_job_end hooks.
+Async-native, uses arq's existing on_job_start / on_job_end hooks.
 
 ## Install
 
@@ -39,7 +39,7 @@ pip install z4j-bare    z4j-arq z4j-arqcron   # framework-free worker
 
 ## Pairs with
 
-- [`z4j-arqcron`](https://github.com/z4jdev/z4j-arqcron) — schedule adapter for arq cron jobs
+- [`z4j-arqcron`](https://github.com/z4jdev/z4j-arqcron), schedule adapter for arq cron jobs
 
 ## Reliability
 
@@ -54,7 +54,7 @@ Full docs at [z4j.dev/engines/arq/](https://z4j.dev/engines/arq/).
 
 ## License
 
-Apache-2.0 — see [LICENSE](LICENSE).
+Apache-2.0, see [LICENSE](LICENSE).
 
 ## Links
 
