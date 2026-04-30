@@ -4,50 +4,35 @@
 [![Python](https://img.shields.io/pypi/pyversions/z4j-arq.svg)](https://pypi.org/project/z4j-arq/)
 [![License](https://img.shields.io/pypi/l/z4j-arq.svg)](https://github.com/z4jdev/z4j-arq/blob/main/LICENSE)
 
+The arq engine adapter for [z4j](https://z4j.com).
 
-z4j queue-engine adapter for [arq](https://github.com/python-arq/arq).
+Streams arq job lifecycle events to the z4j brain and accepts
+control actions (retry, cancel, bulk retry, purge) from the
+dashboard. Pair with z4j-arqcron to surface arq cron jobs.
 
-```python
-from arq.connections import RedisSettings
-from z4j_arq import ArqEngineAdapter
+## Install
 
-settings = RedisSettings(host="redis", port=6379)
-
-# In your z4j-bare bootstrap (async context):
-from z4j_bare import install_agent
-install_agent(
-    engines=[ArqEngineAdapter(redis_settings=settings, function_names=["myapp.send_email"])],
-)
+```bash
+pip install z4j-arq z4j-arqcron
 ```
 
-## Capabilities
+## Pairs with
 
-- ✅ Per-task `cancel_task` (via Redis abort key)
-- ✅ Result-backend reconciliation - arq stores every job under
-  `arq:result:<id>` and `arq:in-progress:<id>`; we read both to
-  classify the canonical state.
-- ❌ `retry_task` - arq has no native "re-enqueue this completed
-  job" primitive; callers have to re-enqueue with the original
-  function name + args. Deferred to v1.1.
-- ❌ `bulk_retry`, `purge_queue`, `restart_worker`, `rate_limit` -
-  arq exposes no remote-control surface for these.
+- [`z4j-arqcron`](https://github.com/z4jdev/z4j-arqcron) — schedule adapter for arq cron jobs
 
-## Cron jobs
+## Documentation
 
-arq's cron jobs are configured via `WorkerSettings.cron_jobs`.
-Pair with `z4j-arqcron` to surface them on the Schedules page.
-
-Apache 2.0.
+Full docs at [z4j.dev/engines/arq/](https://z4j.dev/engines/arq/).
 
 ## License
 
-Apache 2.0 - see [LICENSE](LICENSE). This package is deliberately permissively licensed so that proprietary Django / Flask / FastAPI applications can import it without any license concerns.
+Apache-2.0 — see [LICENSE](LICENSE).
 
 ## Links
 
-- Homepage: <https://z4j.com>
-- Documentation: <https://z4j.dev>
-- Source: <https://github.com/z4jdev/z4j-arq>
-- Issues: <https://github.com/z4jdev/z4j-arq/issues>
+- Homepage: https://z4j.com
+- Documentation: https://z4j.dev
+- PyPI: https://pypi.org/project/z4j-arq/
+- Issues: https://github.com/z4jdev/z4j-arq/issues
 - Changelog: [CHANGELOG.md](CHANGELOG.md)
-- Security: `security@z4j.com` (see [SECURITY.md](SECURITY.md))
+- Security: security@z4j.com (see [SECURITY.md](SECURITY.md))
