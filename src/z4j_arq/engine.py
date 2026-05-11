@@ -35,7 +35,7 @@ from z4j_core.version import PROTOCOL_VERSION
 
 from z4j_arq.capabilities import DEFAULT_CAPABILITIES
 
-logger = logging.getLogger("z4j.agent.arq.engine")
+logger = logging.getLogger("z4j.adapter.arq.engine")
 
 ENGINE_NAME = "arq"
 
