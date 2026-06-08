@@ -1,14 +1,21 @@
 # z4j-arq
 
-[![PyPI version](https://img.shields.io/pypi/v/z4j-arq.svg?v=1.4.0)](https://pypi.org/project/z4j-arq/)
-[![Python](https://img.shields.io/pypi/pyversions/z4j-arq.svg?v=1.4.0)](https://pypi.org/project/z4j-arq/)
-[![License](https://img.shields.io/pypi/l/z4j-arq.svg?v=1.4.0)](https://github.com/z4jdev/z4j-arq/blob/main/LICENSE)
+[![PyPI version](https://img.shields.io/pypi/v/z4j-arq.svg?v=1.6.7)](https://pypi.org/project/z4j-arq/)
+[![Python](https://img.shields.io/pypi/pyversions/z4j-arq.svg?v=1.6.7)](https://pypi.org/project/z4j-arq/)
+[![License](https://img.shields.io/pypi/l/z4j-arq.svg?v=1.6.7)](https://github.com/z4jdev/z4j-arq/blob/main/LICENSE)
 
 The arq engine adapter for [z4j](https://z4j.com).
 
 Streams every arq job lifecycle event from your async workers to the
 z4j and accepts operator control actions from the dashboard.
 Pair with z4j-arqcron to surface arq cron jobs.
+
+## Compatibility
+
+- arq 0.26+ and <1 (capped below the eventual arq 1.0 breaking-major)
+- Python 3.10+
+
+Full per-adapter matrix at <https://z4j.dev/reference/compatibility/>.
 
 ## What it ships
 
